@@ -30,14 +30,13 @@ public class ResizingArrayStackOfStrings {
 
     public String pop() {
         String item = s[--N];
-        S[N] = null;
+        s[N] = null;
         return item;
     }
 
     public static void main(String[] args) {
-        int n = Integer.parseInt(args[0]);
-
-        FixedCapacityArrayStackOfStrings stack = new FixedCapacityArrayStackOfStrings(n);
+      
+        ResizingArrayStackOfStrings stack = new ResizingArrayStackOfStrings();
         System.out.print(stack.isEmpty() + "\n");
         stack.push("a");
         stack.push("b");
