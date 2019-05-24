@@ -31,11 +31,12 @@ public class ResizingArrayStackOfStrings {
     public String pop() {
         String item = s[--N];
         s[N] = null;
+        if (N > 0 && N == s.length/4) resize(s.length/2); // have size of array when array is 1/4 full
         return item;
     }
 
     public static void main(String[] args) {
-      
+
         ResizingArrayStackOfStrings stack = new ResizingArrayStackOfStrings();
         System.out.print(stack.isEmpty() + "\n");
         stack.push("a");
