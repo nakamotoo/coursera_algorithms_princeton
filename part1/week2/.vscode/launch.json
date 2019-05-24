@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - FixedCapacityArrayStackOfStrings",
+            "request": "launch",
+            "mainClass": "FixedCapacityArrayStackOfStrings"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - LinkedStackOfStrings",
+            "request": "launch",
+            "mainClass": "LinkedStackOfStrings"
+        }
+    ]
+}
