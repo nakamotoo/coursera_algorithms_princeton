@@ -1,3 +1,5 @@
+// capacity Nをきめないといけないのが欠点
+
 public class FixedCapacityArrayStackOfStrings {
 
     private String[] s;
@@ -15,9 +17,16 @@ public class FixedCapacityArrayStackOfStrings {
         s[N++] = item;
     }
 
-    // Nをdecrementしているだけで、itemが本当に配列から削除されたわけではない。
+    // Nをdecrementしているだけで、s[N-1]というitemが本当に配列から削除されたわけではない。(loitering)
+    // public String pop() {
+    // return s[--N];
+    // }
+
+    // loiteringの改善ver
     public String pop() {
-        return s[--N];
+        String item = s[--N];
+        S[N] = null;
+        return item;
     }
 
     public static void main(String[] args) {
