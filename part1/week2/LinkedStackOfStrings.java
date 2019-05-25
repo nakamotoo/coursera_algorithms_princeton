@@ -1,3 +1,5 @@
+// last in, first out
+
 public class LinkedStackOfStrings {
     private Node first = null;
 

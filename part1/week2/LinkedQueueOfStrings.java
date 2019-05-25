@@ -1,4 +1,4 @@
-// Last in, first out
+// First in, first out
 
 public class LinkedQueueOfStrings{
   // 最初と最後のノードを記録する
@@ -13,7 +13,6 @@ public class LinkedQueueOfStrings{
     return first == null;
   }
 
-  // last in
   public void enqueue(String item){
     // 以前のlastを記録しておく
     Node oldlast = last;
@@ -21,7 +20,7 @@ public class LinkedQueueOfStrings{
     last = new Node();
     last.item = item;
     last.next = null;
-    if(isEmpty()) first = last; // emptyになった場合だけfirstにも影響がでる
+    if(isEmpty()) first = last; // emptyの状態でenqueueした場合だけfirstにも影響がでる
     else          oldlast.next = last; // 以前のlastのnextを新しく追加したlastに指す
   }
 
@@ -33,7 +32,7 @@ public class LinkedQueueOfStrings{
     return item;
   }
 
-// last in frist out なので, a b cの順でdequeueされる!!!
+// first in frist out なので, a b cの順でdequeueされる!!!
   public static void main(String[] args) {
       LinkedQueueOfStrings queue = new LinkedQueueOfStrings();
       System.out.print(queue.isEmpty() + "\n");
