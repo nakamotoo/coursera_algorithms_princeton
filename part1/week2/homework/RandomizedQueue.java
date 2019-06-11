@@ -34,6 +34,7 @@ public class RandomizedQueue<Item> implements Iterable <Item> {
 
   // add the item
   public void enqueue(Item item){
+    if(item == null){throw new java.lang.IllegalArgumentException("argument is null!!");}
     if(N == s.length)
       resize(2 * s.length);
     s[N++] = item;
@@ -41,6 +42,9 @@ public class RandomizedQueue<Item> implements Iterable <Item> {
 
   // remove and return a random item
   public Item dequeue(){
+    if (isEmpty()) {
+        throw new java.util.NoSuchElementException("queue is empty...");
+    }
     int n = StdRandom.uniform(N);
     Item[] new_s = new Item[s.length];
     for(int i = 0; i < n; i++){
@@ -53,11 +57,15 @@ public class RandomizedQueue<Item> implements Iterable <Item> {
     }
     Item rtn = s[n];
     s = new_s;
+    N--;
     return rtn;
   }
 
   // return a random item(but do not remove it)
   public Item sample(){
+    if (isEmpty()) {
+        throw new java.util.NoSuchElementException("queue is empty...");
+    }
     int n = StdRandom.uniform(N);
     return s[n];
   }
@@ -77,6 +85,9 @@ public class RandomizedQueue<Item> implements Iterable <Item> {
         throw new java.lang.UnsupportedOperationException("remove() is unsupported...");
     }
     public Item next(){
+      if (i == 0) {
+          throw new java.util.NoSuchElementException("no more items to return...");
+      }
       return copy[--i];
     }
   }
