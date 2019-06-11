@@ -1,5 +1,3 @@
-import edu.princeton.cs.algs4.StdOut;
-
 import java.util.Iterator;
 
 public class Deque<Item> implements Iterable<Item> {
@@ -54,9 +52,9 @@ public class Deque<Item> implements Iterable<Item> {
         last.item = item;
         last.next = null;
         last.pre = oldlast;
-        N++;
         if (isEmpty()) first = last;
         else if (oldlast != null) oldlast.next = last;
+        N++;
     }
 
     // remove and return the item from the front
@@ -67,9 +65,9 @@ public class Deque<Item> implements Iterable<Item> {
         Item item = first.item;
         // firstを一個進める
         first = first.next;
-        first.pre = null;
         N--;
         if (isEmpty()) last = null;
+        else first.pre = null;
         return item;
     }
 
@@ -120,15 +118,15 @@ public class Deque<Item> implements Iterable<Item> {
     }
 
     public static void main(String[] args) {
-        Deque<String> d = new Deque<String>();
-        System.out.print(d.isEmpty() + "\n");
-        d.addFirst("a");
-        d.addFirst("b");
-        d.addLast("c");
-        System.out.print(d.isEmpty() + "\n");
-        System.out.print(d.size() + "\n");
-        System.out.print(d.last.item + "\n");
-        for (String s : d) StdOut.println(s);
+        Deque<Integer> d = new Deque<Integer>();
+
+        d.addLast(1);
+
+        System.out.print(d.removeFirst() + "\n");
+//        System.out.print(d.isEmpty() + "\n");
+//        System.out.print(d.size() + "\n");
+//        System.out.print(d.last.item + "\n");
+//        for (String s : d) StdOut.println(s);
 //        System.out.print(d.removeFirst() + "\n");
 //        System.out.print(d.removeLast() + "\n");
 //        System.out.print(d.removeLast() + "\n");
