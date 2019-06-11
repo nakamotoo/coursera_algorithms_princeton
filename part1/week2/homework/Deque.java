@@ -1,6 +1,6 @@
 import edu.princeton.cs.algs4.StdOut;
 
-import java.util.Iterator;git
+import java.util.Iterator;
 
 public class Deque<Item> implements Iterable<Item> {
 
