@@ -79,7 +79,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     private class ArrayIterator implements Iterator<Item> {
         private int i = N;
 
-        StdRandom.shuffle(s);
+        int[] rand = StdRandom.permutation(N);
 
         public boolean hasNext() {
             return i > 0;
@@ -90,10 +90,10 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         }
 
         public Item next() {
-            if (i == 0) {
+            if (i < 0) {
                 throw new java.util.NoSuchElementException("no more items to return...");
             }
-            return s[--i];
+            return s[rand[--i]];
         }
     }
 
